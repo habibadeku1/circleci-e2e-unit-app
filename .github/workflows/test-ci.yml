@@ -21,15 +21,10 @@ jobs:
           node-version: ${{ matrix.node }}
           registry-url: https://registry.npmjs.org
       - name: install
-        run: npm install  
-      - name: lint
-        run: npm run lint
+        run: npm install
       - name: install-webdriver-manager
         run: npm install -g protractor  
       - name: update-chrome-driver-version
-        run: webdriver-manager update --versions.chrome 84.0.4147.30 
-      - name: start-webdriver
-        run: webdriver-manager start  
-      
+        run: webdriver-manager update --versions.chrome 84.0.4147.30  
       - name: e2e-test
         run: npm run e2e --protractor-config=e2e/protractor-ci.conf.js
