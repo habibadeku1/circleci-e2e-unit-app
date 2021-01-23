@@ -12,7 +12,7 @@ exports.config = {
   specs: [
     './src/**/*.e2e-spec.ts'
   ],
-  directConnect: true,
+  // directConnect: true,
   baseUrl: 'http://localhost:4200/',
   seleniumAddress: 'http://localhost:4444/wd/hub',
   framework: 'jasmine',
