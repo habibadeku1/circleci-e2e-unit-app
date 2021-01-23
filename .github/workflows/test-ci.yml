@@ -15,8 +15,8 @@ jobs:
 
     steps:
       - name: setup chrome chrome drivers and update to latest
-                  # sudo apt-get update
         run: |
+            sudo apt-get update
             sudo apt-get upgrade google-chrome-stable -y
             CHROME_VERSION=$(google-chrome --product-version)
             CHROME_VERSION=${CHROME_VERSION%.*}
