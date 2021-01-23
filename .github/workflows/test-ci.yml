@@ -14,29 +14,6 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-      - name: setup chrome chrome drivers and update to latest
-        run: |
-            sudo apt-get update
-            sudo apt-get upgrade google-chrome-stable -y
-            CHROME_VERSION=$(google-chrome --product-version)
-            CHROME_VERSION=${CHROME_VERSION%.*}
-            LATEST_CHROMEDRIVER_VERSION=$(curl "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-            echo "Downloading chromedriver v$LATEST_CHROMEDRIVER_VERSION..."
-            wget "https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-            unzip chromedriver_linux64.zip
-            rm chromedriver_linux64.zip
-
-            CHROMEDRIVER_DIR="/usr/local/share/chrome_driver"
-            CHROMEDRIVER_BIN="$CHROMEDRIVER_DIR/chromedriver"
-
-            sudo rm -rf $CHROMEDRIVER_DIR/*
-            sudo rm -rf $CHROMEDRIVER_BIN/*
-
-            sudo mkdir -p $CHROMEDRIVER_DIR
-            sudo mv "chromedriver" $CHROMEDRIVER_BIN
-            sudo chmod +x $CHROMEDRIVER_BIN
-            chromedriver --version
-
       - uses: actions/checkout@v1
       - name: Use node ${{ matrix.node }}
         uses: actions/setup-node@v1
@@ -44,12 +21,14 @@ jobs:
           node-version: ${{ matrix.node }}
           registry-url: https://registry.npmjs.org
       - name: install
-        run: npm install
+        run: npm install  
       - name: lint
         run: npm run lint
       - name: build
         run: npm run build
       - name: unit-test
         run: npm run test --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - name: update-chrome-driver-version
+        run: webdriver-manager update --versions.chrome 84.0.4147.30  
       - name: e2e-test
         run: npm run e2e --protractor-config=e2e/protractor-ci.conf.js
