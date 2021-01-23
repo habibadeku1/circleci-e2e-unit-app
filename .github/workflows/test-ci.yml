@@ -25,7 +25,7 @@ jobs:
       - name: lint
         run: npm run lint
       - name: install-webdriver-manager
-        run: npm install --save-dev webdriver-manager  
+        run: npm install -g protractor  
       - name: update-chrome-driver-version
         run: webdriver-manager update --versions.chrome 84.0.4147.30  
       - name: unit-test
