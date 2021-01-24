@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    // "README-postinstall": "The chromedriver version must support the chrome version installed via puppeteer. Chromedriver 88.0.4324.96 supports Chrome 87. See https://chromedriver.chromium.org/downloads for version matching.",
+    "README-postinstall": "The chromedriver version must support the chrome version installed via puppeteer. Chromedriver 88.0.4324.96 supports Chrome 87. See https://chromedriver.chromium.org/downloads for version matching.",
     "clean-webdriver": "webdriver-manager clean",
     "install-webdriver-version": "webdriver-manager update --standalone false --gecko false --versions.chrome 88.0.4324.96"
   },
