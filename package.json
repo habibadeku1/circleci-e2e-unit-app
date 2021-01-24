@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "README-postinstall": "The chromedriver version must support the chrome version installed via puppeteer. Chromedriver 76.0.3809.68 supports Chrome 76. See https://chromedriver.chromium.org/downloads for version matching.",
-    "postinstall": "webdriver-manager update --standalone false --gecko false --versions.chrome 76.0.3809.68"
+    "README-postinstall": "The chromedriver version must support the chrome version installed via puppeteer. Chromedriver 88.0.4324.96 supports Chrome 88. See https://chromedriver.chromium.org/downloads for version matching.",
+    "postinstall": "webdriver-manager update --standalone false --gecko false --versions.chrome 88.0.4324.96"
   },
   "private": true,
   "dependencies": {
@@ -41,7 +41,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
-    "puppeteer": "chrome-76",
+    "puppeteer": "chrome-88",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
