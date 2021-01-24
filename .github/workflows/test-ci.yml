@@ -35,15 +35,11 @@ jobs:
            ${{ runner.os }}-build-
            ${{ runner.os }}-
 
-      - name: Setup chrome driver environment
-        run: |         
-         sudo apt-get install -y google-chrome-stable
-         VERSION=`google-chrome --version | egrep -o '[0-9]+.[0-9]+' | head -1`
-         npm i webdriver-manager@latest -D
-         npm i chromedriver --chromedriver_version=$VERSION -D
-      - name: install
+      - name: Install dependencies
         run: npm install
-      - name: e2e-test
-        run: npm run e2e --protractor-config=e2e/protractor-ci.conf.js
-      - name: unit-test
+      - name: Lint
+        run: npm run lint
+      - name: Test
         run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - name: E2E
+        run: npm run e2e -- --protractor-config=e2e/protractor-ci-ga.conf.js
