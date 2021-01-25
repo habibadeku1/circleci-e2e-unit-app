@@ -39,8 +39,6 @@ jobs:
                 - run:
                     name: End to End Test
                     command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
-                - store_artifacts:
-  	              path: ~/circleci-e2e-unit-app/protractor-result
 
 workflows:
     version: 2

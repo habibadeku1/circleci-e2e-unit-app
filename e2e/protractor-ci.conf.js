@@ -14,8 +14,8 @@
         },
     };
 
-    config.onPrepare = function() {
-      jasmine.getEnv().addReporter(reporter);
-    }
+    // config.onPrepare = function() {
+    //   jasmine.getEnv().addReporter(reporter);
+    // }
 
     exports.config = config;
